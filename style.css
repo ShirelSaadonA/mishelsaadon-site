@@ -1,0 +1,1626 @@
+/* ========== בסיס ========== */
+html{ scroll-behavior:smooth; }
+body{
+  direction: rtl;
+  font-family: "Heebo", "Varela Round", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfdfd;
+  color: #222;
+  line-height: 1.8;
+}
+h1,h2{ margin-top:0; }
+h2{
+  position:relative;
+  padding-bottom:.4rem;
+}
+h2::after{
+  content:"";
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:60px;
+  height:3px;
+  background:#004d40;
+  border-radius:2px;
+}
+
+/* ========== HEADER (פס ירוק) ========== */
+.topbar{
+  background:#004d40;
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 5px rgba(0,0,0,.2);
+}
+.header-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:12px 20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.topbar nav{ margin:0; width:100%; }
+.topbar nav ul{
+  display:flex;
+  gap:24px;
+  list-style:none;
+  padding:0;
+  margin:0;
+  justify-content:center;
+}
+.topbar nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1rem;
+  padding:6px 14px;
+  border-radius:6px;
+  transition:background .15s;
+}
+.topbar nav a:hover{
+  background:rgba(255,255,255,.12);
+}
+
+/* ========== אזורי תוכן כלליים ========== */
+section{
+  padding:60px 20px;
+  max-width:1000px;
+  margin:auto;
+  scroll-margin-top:90px; /* כך העוגן לא יכנס מתחת לכותרת הדביקה */
+}
+section img{
+  max-width:300px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 4px 8px rgba(0,0,0,.1);
+}
+
+/* ========== ABOUT ========== */
+.about-container{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  max-width:1000px;
+  margin:auto;
+}
+.about-text{ flex:1 1 60%; }
+.about-text h2{ font-size:2rem; color:#004d40; }
+.about-text p{
+  font-size:1.1rem;
+  color:#333;
+  margin-bottom:15px;
+}
+.about-image{ flex:1 1 35%; text-align:center; }
+.about-image img{
+  max-width:100%;
+  border-radius:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+/* ========== METHOD ========== */
+.method-container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+  background-color:#f8f8f8;
+  border-radius:16px;
+  box-shadow:0 4px 8px rgba(0,0,0,.05);
+  line-height:1.8;
+}
+.method-container h2{
+  color:#004d40;
+  font-size:1.8rem;
+  margin-bottom:20px;
+}
+.method-container p{
+  color:#333;
+  font-size:1.05rem;
+  margin-bottom:16px;
+}
+.method-container blockquote{
+  margin-top:30px;
+  font-style:italic;
+  color:#555;
+  border-right:5px solid #004d40;
+  padding-right:15px;
+}
+
+/* ========== LECTURES CARDS (אופקיות) ========== */
+#lectures h2{ text-align:center; }
+.card-container{
+  display:flex;
+  overflow-x:auto;
+  gap:20px;
+  padding:20px;
+  scroll-snap-type:x mandatory;
+}
+.card-container::-webkit-scrollbar{ height:8px; }
+.card-container::-webkit-scrollbar-thumb{
+  background-color:#004d40;
+  border-radius:10px;
+}
+.lecture-card{
+  flex:0 0 280px;
+  scroll-snap-align:start;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
+  transition:transform .2s ease;
+  min-height:240px;
+}
+.lecture-card:hover{ transform:translateY(-4px); }
+.lecture-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:10px;
+}
+.lecture-card h3{ margin:0; font-size:1.1rem; }
+.lecture-card p{ font-size:.95rem; color:#444; }
+.lecture-card .tag{
+  display:inline-block;
+  margin-top:10px;
+  background:#004d40;
+  color:#fff;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:.8rem;
+}
+
+/* ========== FAQ ========== */
+#faq{
+  max-width:900px;
+  margin:80px auto;
+  padding:0 20px;
+}
+#faq h2{
+  text-align:center;
+  color:#004d40;
+  margin-bottom:30px;
+  font-size:1.8rem;
+}
+.faq-item + .faq-item{ margin-top:12px; }
+.faq-question{
+  width:100%;
+  text-align:right;
+  background:#feffffb5;
+  border:none;
+  outline:none;
+  padding:16px 18px;
+  font-size:1rem;
+  font-weight:600;
+  color:#004d40;
+  border-radius:12px;
+  cursor:pointer;
+  position:relative;
+  transition:background .2s ease;
+}
+.faq-question::after{
+  content:"＋";
+  position:absolute;
+  left:18px;
+  font-size:1.2rem;
+  color:#004d40;
+  transition:transform .2s ease;
+}
+.faq-question.active::after{ content:"－"; }
+.faq-question:hover{ background:#d9ece9; }
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s ease;
+  background:#fff;
+  border-radius:0 0 12px 12px;
+  box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+.faq-answer p{
+  margin:0;
+  padding:16px 18px;
+  color:#333;
+  line-height:1.7;
+  font-size:.95rem;
+  border-top:1px solid #eee;
+}
+
+/* ===== לקוחות מרוצים ===== */
+#testimonials {
+  background-color: #f9f9f6;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+#testimonials h2 {
+  font-size: 2rem;
+  color: #004d40;
+  margin-bottom: 2rem;
+}
+
+.t-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.t-track {
+  display: flex;
+  gap: 1rem;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.t-card {
+  min-width: 250px;
+  flex: 0 0 auto;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.t-card:hover {
+  transform: scale(1.03);
+}
+
+.t-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* חצים */
+.t-arrow {
+  background: #004d40;
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+
+.t-arrow:hover {
+  background: #00695c;
+}
+
+.t-arrow.prev {
+  margin-left: 1rem;
+}
+
+.t-arrow.next {
+  margin-right: 1rem;
+}
+
+/* מובייל */
+@media (max-width: 600px) {
+  .t-card {
+    min-width: 200px;
+  }
+
+  .t-arrow {
+    display: none;
+  }
+}
+
+/* ========== CONTACT FORM ========== */
+#contact{
+  max-width:900px;
+  margin:80px auto;
+  padding:0 20px;
+  text-align:center;
+}
+#contact h2{
+  color:#004d40;
+  font-size:1.9rem;
+  margin-bottom:10px;
+}
+.contact-intro{
+  color:#444;
+  margin-bottom:30px;
+  line-height:1.7;
+  font-size:1rem;
+}
+form{
+  max-width:400px;
+  margin:auto;
+  background:#f8f8f8;
+  padding:30px 25px;
+  border-radius:16px;
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
+  text-align:right;
+}
+.form-group{
+  margin-bottom:18px;
+  position:relative;
+}
+.form-group label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:600;
+  color:#004d40;
+  font-size:.95rem;
+}
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  font-size:.95rem;
+  box-sizing:border-box;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+  outline:none;
+  border-color:#00796b;
+  box-shadow:0 0 0 2px rgba(0,121,107,.15);
+}
+.error-msg{
+  display:none;
+  color:#d32f2f;
+  font-size:.8rem;
+  margin-top:4px;
+  position:absolute;
+  bottom:-18px;
+  right:0;
+}
+input.invalid,
+textarea.invalid,
+select.invalid{ border-color:#d32f2f; }
+.btn-primary{
+  background:#004d40;
+  color:#fff;
+  border:none;
+  padding:14px 28px;
+  border-radius:30px;
+  font-size:1rem;
+  cursor:pointer;
+  margin-top:10px;
+  transition:background .2s ease;
+  display:inline-block;
+}
+.btn-primary:hover{ background:#00796b; }
+.form-status{
+  margin-top:18px;
+  font-size:.95rem;
+  color:#004d40;
+  min-height:22px;
+}
+
+.contact-extra{
+
+  padding: 40px;
+  max-width:800px;
+  margin-bottom: 40px;
+  margin-top:40px;
+  text-align:right
+}
+.contact-extra h2{
+  
+  color:#004d40;
+  font-size:1.9rem;
+  margin-bottom:10px;
+}
+.contact-extra p{
+  color:#444;
+  margin-bottom:30px;
+  line-height:1.7;
+  font-size:1rem;
+}
+.contact-extra ul{
+  list-style:none;
+  padding:0;
+  line-height:1.9;
+  font-size:.95rem;
+}
+.contact-extra a{
+  color:#004d40;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* ========== FOOTER ========== */
+footer{
+  background-color:#e0f2f1;
+  padding:40px 20px;
+  text-align:center;
+}
+
+/* ========== FB BUBBLE ========== */
+.fb-bubble{
+  position:fixed;
+  bottom:24px;
+  left:24px;
+  width:62px;
+  height:62px;
+  background:#1877f2;
+  border-radius:50%;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+  animation:pulse 2.4s infinite;
+  z-index:999;
+}
+.fb-bubble .icon{ font-size:30px; }
+@keyframes pulse{
+  0%{ box-shadow:0 0 0 0 rgba(24,119,242,.6); }
+  70%{ box-shadow:0 0 0 18px rgba(24,119,242,0); }
+  100%{ box-shadow:0 0 0 0 rgba(24,119,242,0); }
+}
+
+/* ========== OVERLAY VIDEO PLAYER ========== */
+.player-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+  padding:2vw;
+  opacity:0;
+  transition:opacity .25s ease;
+}
+.player-overlay.open{ display:flex; opacity:1; }
+.player-box{
+  width:100%;
+  max-width:960px;
+  max-height:90vh;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+#playerVideo{
+  width:100%;
+  max-height:80vh;
+  object-fit:contain;
+  border-radius:12px;
+  background:#000;
+}
+#playerCaption{
+  color:#fff;
+  margin:0;
+  line-height:1.5;
+  font-size:1rem;
+  text-align:right;
+}
+.player-close{
+  position:absolute;
+  top:18px;
+  right:24px;
+  font-size:38px;
+  background:none;
+  border:none;
+  color:#fff;
+  cursor:pointer;
+  line-height:1;
+}
+.player-close:hover{ opacity:.85; }
+
+/* ===== מובייל ===== */
+@media (max-width:700px){
+  .header-inner{ flex-wrap:wrap; gap:12px; }
+  .topbar nav ul{ flex-wrap:wrap; justify-content:center; gap:10px 16px; }
+  section{ padding:50px 16px; }
+  .about-text{ flex-basis:100%; }
+  .about-image{ flex-basis:100%; }
+  .hero{ padding:60px 20px 40px; }
+  .hero h1{ font-size:1.9rem; }
+}
+.t-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px; height:42px;
+  border:none;
+  border-radius:50%;
+  background:rgba(0,0,0,.4);
+  color:#fff;
+  font-size:1.6rem;
+  line-height:1;
+  cursor:pointer;
+  z-index:2;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s;
+}
+.t-arrow:hover{ background:rgba(0,0,0,.55); }
+#testimonials{ position:relative; }         /* כדי למקם חצים יחסית לסקשן */
+.t-arrow.prev{ right:8px; }
+.t-arrow.next{ left:8px; }
+
+
+.about-text{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;   /* אם תרצי לימין: flex-end */
+}
+.about-sign{
+  margin-top:24px;
+}
+.about-sign img{
+  width:140px;    /* שחקי עם הגודל */
+  height:auto;
+  opacity:.9;     /* עדין יותר; אפשר להסיר */
+}
+/* כותרת כללית עם קו תחתון */
+.section-title{
+  text-align:center;
+  color:#004d40;
+  font-size:1.9rem;
+  margin:0 auto 26px;
+  position:relative;
+  padding-bottom:.4rem;
+  max-width:1000px;
+}
+.section-title::after{
+  content:"";
+  display:block;
+  width:70px;
+  height:3px;
+  background:#004d40;
+  margin:8px auto 0;
+  border-radius:2px;
+}
+
+/* הסקשן עצמו בלי רקע */
+#testimonials{
+  max-width:1100px;
+  margin:80px auto;
+  padding:0 20px;
+  position:relative;
+  border-radius:16px;
+  padding:2rem 1rem;
+}
+
+/* הבלוק הבהיר רק סביב הגלריה */
+#testimonials .t-wrap{
+  background:hwb(0 95% 5%);
+  padding:2rem 1rem;
+  border-radius:16px;
+  position:relative;
+  overflow:hidden;
+}
+/* חצים */
+.t-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:rgba(0,0,0,.4);
+  color:#fff;
+  font-size:1.6rem;
+  cursor:pointer;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .2s;
+}
+.t-arrow:hover{ background:rgba(0,0,0,.55); }
+.t-arrow.prev{ right:12px; }
+.t-arrow.next{ left:12px; }
+/* ===== כותרת מחוץ לבלוק + קו תחתון ===== */
+.section-title{
+  text-align:center;
+  color:#004d40;
+  font-size:1.9rem;
+  margin:0 auto 26px;
+  position:relative;
+  padding-bottom:.4rem;
+  max-width:1000px;
+}
+.section-title::after{
+  content:"";
+  display:block;
+  width:70px;
+  height:3px;
+  background:#004d40;
+  margin:8px auto 0;
+  border-radius:2px;
+}
+
+/* ===== בלוק ההמלצות ===== */
+#testimonials{
+  max-width:1100px;
+  margin:80px auto;
+  padding:0 20px;
+  position:relative;
+}
+#testimonials .t-wrap{
+  background:#f8f8f5;
+  padding:2rem 1rem;
+  border-radius:16px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* גלריה אופקית */
+#testimonials .t-track{
+  display:flex;
+  gap:1rem;
+  overflow-x:auto;
+  padding:.5rem 1rem;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+#testimonials .t-track::-webkit-scrollbar{ display:none; }
+
+#testimonials .t-card{
+  flex:0 0 clamp(160px,24vw,220px);
+  scroll-snap-align:start;
+  border-radius:16px;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+  background:#fff;
+  overflow:hidden;
+}
+#testimonials .t-card img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* חצים */
+.t-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:rgba(0,0,0,.4);
+  color:#fff;
+  font-size:1.6rem;
+  cursor:pointer;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background .2s;
+}
+.t-arrow:hover{ background:rgba(0,0,0,.55); }
+.t-arrow.prev{ right:12px; }
+.t-arrow.next{ left:12px; }
+.contact-inline{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px 26px;
+  justify-content:flex-start;         /* לשים flex-end אם רוצים לימין */
+  margin-top:28px;
+}
+
+.contact-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-weight:600;
+  color:#004d40;
+  text-decoration:none;
+  padding:8px 14px;
+  border-radius:24px;
+  background:#e8f3f1;
+  transition:background .15s, transform .15s;
+}
+.contact-link:hover{
+  background:#d1ebe6;
+  transform:translateY(-2px);
+}
+.contact-link svg{
+  width:20px;
+  height:20px;
+  fill:currentColor;
+}
+
+/* צבעים ייעודיים (אופציונלי) */
+.contact-link.wa{ background:#25D3661a; color:#25D366; }
+.contact-link.wa:hover{ background:#25D36633; }
+
+.contact-link.ig{ background:#E1306C1a; color:#E1306C; }
+.contact-link.ig:hover{ background:#E1306C33; }
+
+.contact-link.fb{ background:#1877F21a; color:#1877F2; }
+.contact-link.fb:hover{ background:#1877F233; }
+/* לוגו שמאל, תפריט באמצע */
+.topbar .header-inner{
+  position:relative;
+  justify-content:center;  /* התפריט נשאר במרכז */
+}
+
+.logo{
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.logo img{
+  height:46px;
+  width:auto;
+}
+@media (min-width: 701px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+:root {
+  --logo-h: 70px;
+}
+.topbar .header-inner {
+  min-height: calc(var(--logo-h) + 16px);
+}
+
+
+/* מגדיל את הלוגו */
+.logo img{
+  height: var(--logo-h) !important;
+  width: auto;
+  display:block;
+}
+
+/* מוודא שלוגו לא נחתך בגלל הגובה של הפס */
+.topbar .header-inner{
+  min-height: calc(var(--logo-h) + 16px);
+  padding: 8px 20px;
+}
+.logo img{ width:180px; height:auto; }
+/* ======= Quotes Section ======= */
+#quotes {
+  padding: 4rem 1rem;
+  background-color: #fdfdfd;
+  text-align: center;
+}
+
+#quotes h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #004d40;
+}
+
+.quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.quote-card {
+  position: relative;
+  background: #ffffff;
+  border-left: 4px solid #004d40;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 0.5rem;
+  font-style: italic;
+}
+
+.quote-text {
+  margin: 0 0 1rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.quote-author {
+  display: block;
+  text-align: right;
+  font-weight: bold;
+  color: #004d40;
+  font-style: normal;
+}
+/* כרטיס אחיד רוחב־גובה */
+.podcast-card {
+  flex: 0 0 300px;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  /* הסדר טקסט מתחת */
+  display: flex;
+  flex-direction: column;
+}
+
+/* מכולת הווידאו: שומרת על יחס 16:9 בלי לחתוך */
+.video-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;       /* שומר על יחס גובה־רוחב 16:9 */
+  background-color: #000;    /* רקע שחור מאחורי הסרטון */
+}
+
+/* הווידאו עצמו מתנהל בתוך כל המכולה, ללא חיתוך */
+.video-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* מציג את כל הווידאו, יוצר letterbox במקום לחתוך */
+}
+
+/* טקסט מתחת לסרגל הווידאו */
+.podcast-card h3 {
+  margin: 0.5rem 1rem 0 1rem;
+  font-size: 1rem;
+  color: #004d40;
+}
+.podcast-card p {
+  margin: 0.25rem 1rem 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.3;
+}
+#podcasts {
+  padding: 4rem 1rem;
+  background-color: #fafafa;
+}
+
+.podcast-track {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+}
+
+.podcast-card {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.video-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.podcast-card h3 {
+  margin: 0.5rem 1rem 0 1rem;
+  font-size: 1rem;
+  color: #004d40;
+}
+
+.podcast-card p {
+  margin: 0.25rem 1rem 1rem 1rem;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Scrollbar עיצוב אופציונלי */
+.podcast-track::-webkit-scrollbar {
+  height: 8px;
+}
+.podcast-track::-webkit-scrollbar-thumb {
+  background-color: #004d40;
+  border-radius: 4px;
+}
+.section-subtitle {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #555;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
+.contact-link.yt {
+  background: #FF00001a;
+  color: #FF0000;
+}
+.contact-link.yt:hover {
+  background: #FF000033;
+}
+/* ===== Invite Facebook Card (New Design) ===== */
+.fb-invite-card {
+  background-color: #f8f8f8;
+  padding: 80px 20px;
+}
+
+
+
+.fb-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: auto;
+  gap: 40px;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  padding: 40px;
+}
+
+.fb-photo img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.fb-text {
+  flex: 1 1 400px;
+  text-align: right;
+}
+
+.fb-text h2 {
+  color: #004d40;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.fb-text p {
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.fb-button {
+  display: inline-block;
+  background-color: #1877f2;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s;
+  
+}
+
+.fb-button:hover {
+  background-color: #145dbf;
+}
+
+
+.numerology-wrapper-inner {
+  background-color: #f3f8f6;
+  border-radius: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+
+
+#destinyForm {
+  margin-top: 30px;
+}
+
+#destinyForm label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #333;
+  text-align: right;
+}
+
+#destinyForm input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+#destinyForm button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#destinyForm button:hover {
+  background-color: #005e54;
+}
+
+#resultBox {
+  margin-top: 30px;
+  background: #e0f2f1;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+#resultBox p {
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+}
+
+#resultBox .cta {
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+#resultBox .cta a {
+  color: #00796b;
+  text-decoration: underline;
+}
+
+#destinyForm label {
+  display: block;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+#destinyForm input[type="text"],
+#destinyForm input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+#destinyForm button {
+  margin-top: 20px;
+  background-color: #004d40;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#destinyForm button:hover {
+  background-color: #00796b;
+}
+
+#resultBox {
+  margin-top: 30px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+#resultBox p {
+  font-size: 1.1rem;
+}
+
+#resultBox .cta a {
+  color: #004d40;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* ========= מאמרים ========= */
+#articles {
+  padding: 80px 20px;
+  background-color: #fdfdfd;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.blog-article {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  line-height: 1.8;
+}
+
+.blog-article h3 {
+  color: #004d40;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.blog-article p,
+.blog-article ol {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.blog-article ol {
+  padding-right: 1.5rem;
+}
+
+.blog-article li {
+  margin-bottom: 8px;
+}
+
+/* === Auto-extracted inline styles === */
+.custom-style-1 { font-family: 'Playpen Sans Hebrew', sans-serif; }
+
+.custom-style-2 { display: flex; align-items: center; justify-content: space-between; }
+
+.custom-style-3 { margin-left: 1rem; }
+
+.custom-style-4 { height: 40px; transition: transform 0.3s ease; }
+
+.custom-style-5 { background-color: #fdf6e3; border-right: 4px solid #c49a6c; padding: 1rem; border-radius: 8px; }
+
+.custom-style-6 { display:none; }
+
+
+/* === FAQ section background styling === */
+.faq-section {
+  background-color: #f2f9f8;
+  padding: 3rem 1rem;
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 1000px;
+}
+
+
+/* === Unified layout for all sections === */
+.content-section {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+/* === Fix FAQ font to match site === */
+.faq-question {
+  font-family: inherit;
+}
+.social-box {
+  border: 1px solid #a5fbd4;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 3rem auto;
+  max-width: 1000px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(236, 230, 230, 0.934);
+  text-align: center;
+}
+
+.social-box h2 {
+  color: #004d40;
+  margin-bottom: 1.5rem;
+}
+
+.contact-inline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 30px;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.contact-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* צבעים לכל רשת */
+.contact-link.wa {
+  background-color: #e0f7ec;
+  color: #25D366;
+}
+
+.contact-link.ig {
+  background-color: #ffe2ec;
+  color: #e1306c;
+}
+
+.contact-link.fb {
+  background-color: #e3f0ff;
+  color: #1877f2;
+}
+
+.contact-link.yt {
+  background-color: #ffe5e5;
+  color: #ff0000;
+}
+
+.contact-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* כפתור פתיחה */
+.open-modal-btn {
+  background-color: #004d40;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 2rem auto;
+  display: block;
+  transition: background 0.3s ease;
+}
+.open-modal-btn:hover {
+  background-color: #00695c;
+}
+
+/* שכבת הרקע האפורה */
+.modal {
+  display: none; /* מופעל רק בלחיצה */
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+/* הקופסה עצמה */
+.modal-content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 700px;
+  width: 90%;
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2rem;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* תמונה בפרופיל */
+.modal-content img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* תוכן טקסט */
+.modal-content .text {
+  flex: 1;
+}
+.modal-content .text h2 {
+  margin-top: 0;
+  color: #004d40;
+}
+.modal-content .text p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
+}
+.modal-content .text a {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.modal-content .text a:hover {
+  background-color: #0056b3;
+}
+
+/* כפתור X לסגירה */
+.modal .close {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #888;
+}
+.modal .close:hover {
+  color: #000;
+}
+
+/* אנימציה */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* רספונסיביות לניידים */
+@media (max-width: 600px) {
+  .modal-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .modal-content img {
+    margin-bottom: 1rem;
+  }
+}
+#message-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #39433b;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: background 0.3s;
+}
+
+#message-btn:hover {
+  background-color: #39433b;
+}
+
+#message-card {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  width: 280px;
+  padding: 1rem;
+  background: #fff;
+  border: 2px solid #39433b;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  font-family: 'Heebo', sans-serif;
+  display: none;
+  z-index: 999;
+  direction: rtl;
+}
+
+#message-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+}
+.signature-area {
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.signature-logo {
+  height: 60px;
+  max-width: 180px;
+  object-fit: contain;
+  opacity: 0.85;
+}
+.about-signature {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.about-signature img {
+  width: 160px;
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+.site-footer {
+  background-color: #f9f9f9;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.site-footer img {
+  width: 150px;
+  height: auto;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.1));
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* תפריט רספונסיבי לנייד */
+
+#testimonials {
+  background-color: #f9f9f6;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+#testimonials h2 {
+  font-size: 2rem;
+  color: #004d40;
+  margin-bottom: 2rem;
+}
+
+.testimonial-swiper {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.testimonial-swiper .swiper-slide {
+  background: #fff;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-swiper .swiper-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 1.5rem;
+  object-fit: cover;
+}
+/* עיצוב פופ אפ */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  direction: rtl;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  font-family: "Heebo", sans-serif;
+  position: relative;
+}
+
+.popup-content h2 {
+  margin-top: 0;
+  color: #004d40;
+}
+
+.popup-content p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* כפתור צף */
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
+  background-color: #004d40;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+.floating-btn:hover {
+  background-color: #00695c;
+}
+.hidden-question {
+  display: none;
+}
+
+.load-more-btn {
+  margin: 2rem auto;
+  display: block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #222;
+  border: 2px solid #222;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+  background-color: #222;
+  color: #fff;
+}
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 999; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  text-align: center;
+}
+/* נגישות לכותרות נסתרות */
+
+.visually-hidden{
+  position:absolute !important;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden; clip:rect(1px,1px,1px,1px);
+  white-space:nowrap; border:0;
+}
+
