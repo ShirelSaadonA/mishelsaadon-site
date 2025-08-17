@@ -1,4 +1,4 @@
-echo "# Mishel Saadon – Personal Growth & NLP Website
+## Mishel Saadon – Personal Growth & NLP Website
 
 A responsive personal website built with **HTML, CSS, and JavaScript** for Mishel Saadon – an emotional guidance coach and NLP practitioner.
 The site combines design, content, and interactive tools to provide value for visitors who seek personal growth, motivation, and practical insights.
@@ -29,4 +29,4 @@ The website is live at:
 
 ## 📄 License
 This project is licensed under the **MIT License** – feel free to use and adapt.
-" > README.md
+
