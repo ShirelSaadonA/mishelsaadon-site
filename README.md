@@ -28,5 +28,6 @@ The website is live at:
 - Add backend integration for contact form automation.
 
 ## 📄 License
-This project is licensed under the **MIT License** – feel free to use and adapt.
+All rights reserved. This code is private and may not be copied or reused without permission.
+
 
